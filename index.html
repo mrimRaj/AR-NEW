@@ -6,107 +6,16 @@
     <title>Unity Web Player | ARsup</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-
-    <!-- ============== BRANDED LOADING SCREEN: styling only, no logic ============== -->
-    <style>
-      :root {
-        --brand-bg: #150808;       /* EDIT: background colour */
-        --brand-accent: #E11B22;   /* EDIT: accent / spinner colour */
-        --brand-text: #EDEAE4;     /* EDIT: title text colour */
-      }
-
-      #unity-container, body { background: var(--brand-bg) !important; }
-
-      #unity-loading-bar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 28px;
-        position: fixed;   /* fixed = fills the real browser viewport, not just #unity-container */
-        inset: 0;
-        z-index: 20;
-        background: var(--brand-bg);
-      }
-
-      .brand-logo-circle {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        box-shadow: 0 0 40px rgba(0,0,0,0.4);
-      }
-      .brand-logo-circle img {
-        width: 68%;
-        height: auto;
-      }
-
-      .brand-title {
-        font: 700 34px/1 system-ui, sans-serif;
-        letter-spacing: 2px;
-        color: var(--brand-text);
-        text-transform: uppercase;
-      }
-
-      .brand-loading-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .brand-loading-text {
-        font: 600 18px/1 system-ui, sans-serif;
-        color: var(--brand-text);
-      }
-
-      .brand-spinner {
-        width: 26px;
-        height: 26px;
-        border-radius: 50%;
-        border: 3px solid rgba(255,255,255,0.18);
-        border-top-color: var(--brand-accent);
-        animation: brand-spin 0.9s linear infinite;
-        display: inline-block;
-      }
-      @keyframes brand-spin { to { transform: rotate(360deg); } }
-
-      .brand-footer {
-        position: absolute;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 28px);
-        font: 500 14px/1 system-ui, sans-serif;
-        color: rgba(237,234,228,0.6);
-      }
-    </style>
-    <!-- ============================================================================ -->
-
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1080 height=1980 tabindex="-1"></canvas>
-
-      <!-- ============== BRANDED LOADING SCREEN markup ============== -->
       <div id="unity-loading-bar">
-        <div class="brand-logo-circle">
-          <img src="TemplateData/brand-logo.png" alt="logo">
-        </div>
-        <div class="brand-title">AR GUIDE</div>                          <!-- EDIT: your title -->
-        <div class="brand-loading-row">
-          <span class="brand-spinner"></span>
-          <span class="brand-loading-text">Loading</span>
-        </div>
-        <div class="brand-footer">Developed by Your Company</div>        <!-- EDIT or delete this line -->
-
-        <!-- kept (hidden) so the existing script below, which sets its width,
-             still finds an element and never errors -->
-        <div id="unity-progress-bar-empty" style="display:none">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <!-- ============================================================= -->
-
       <div id="unity-warning"> </div>
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
