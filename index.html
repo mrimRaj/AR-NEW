@@ -23,8 +23,9 @@
         align-items: center;
         justify-content: center;
         gap: 28px;
-        position: absolute;
+        position: fixed;   /* fixed = fills the real browser viewport, not just #unity-container */
         inset: 0;
+        z-index: 20;
         background: var(--brand-bg);
       }
 
